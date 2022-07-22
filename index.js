@@ -20,6 +20,7 @@ function add_todo(){
   const id = ' ' + new Date().getTime();
 
   createTodo(title,dueDate,id);
+  document.getElementById('todo-title').value = '';
 
   render();
 }
@@ -34,17 +35,22 @@ function removeTodo(idToDelete){
       return true;
     }
   });
+
+  
 }
 
 function deleteTodo(event){
   let deleteButton = event.target;
   let idToDelete = deleteButton.id;
+  // console.log(idToDelete);
 
   removeTodo(idToDelete);
   render();
 }
 
 function render(){
+
+  document.getElementById('on-hand').innerHTML = '';
 
   todos.forEach(function (todo){
     let element = document.createElement('div');
