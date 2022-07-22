@@ -1,28 +1,32 @@
 <html>
-  <head>
-    <title>To Do</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+<head>
+  <title>To Do</title>
 
-    <link rel="stylesheet" href="index.css">
-  
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 
-    <body>
-      <p>What do you want to add: </p> <input id="todo-title" type="text" placeholder ="Enter a task">
-      <p>And when do you want to add: </p> <input id="date-picker" type="datetime-local">
-      <button id="add-btn" onclick="add_todo()">Add</button>
+  <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+  <p>What do you want to add: </p> <input id="todo-title" type="text" placeholder="Enter a task">
+  <p>And when do you want to add: </p> <input id="date-picker" type="datetime-local">
+  <button id="add-btn" onclick="add_todo()">Add</button>
 
 
-      <section class="mid">
-        <h1>Task on Hand </h1>
-        <div id="on-hand">  </div>
-        <h1>Completed Tasks</h1>
-        <div id="completed-task">  </div>
-      </section>
-      
-      <script src="index.js"></script>
-    </body>
+  <section class="mid">
+    <div class="onHand">
+      <h1>Task on Hand </h1>
+      <div id="on-hand"> </div>
+    </div>
+    <h1>Completed Tasks</h1>
+    <div id="completed-task"> </div>
+  </section>
+
+  <script src="index.js"></script>
+</body>
+
 </html>
