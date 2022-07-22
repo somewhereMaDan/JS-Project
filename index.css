@@ -17,3 +17,8 @@ p{
   display: flex;
   justify-content: space-evenly;
 }
+
+.onHand{
+  display: flex;
+  flex-direction: column;
+}
