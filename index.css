@@ -1,11 +1,26 @@
 *{
   font-family: 'Raleway', sans-serif;
+  /* background-repeat: no-repeat;
+  background-position: top; */
+  background-size: cover ; 
+  /* background-color: hsl(229, 57%, 11%);  */
+  /* color: aliceblue;   */
+  /* transition: background-image 1s; */
 }
 p{
-  font-size: 22px;
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: 27px;
+  background: transparent;
 }
-.h1{
-  border-style: solid;
+h1{
+  font-size: 30px;
+}
+
+#todo-title, #date-picker{
+  margin-left: 10px;
+  margin-top: -10px;
+  padding: 5 5 5 5;
 }
 
 #add-btn{
@@ -14,14 +29,18 @@ p{
   font-size: 17px;
   padding-left: 40px;
   padding-right: 40px;
+  font-weight: 600;
+  margin-left: 10px;
 }
 
 .mid{
+  margin-top: 20px;
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 
 .onHand{
+  /* background-color: white; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -31,7 +50,6 @@ p{
   border-left: none;
   border-bottom: none;
   border-top: none;
-
 }
 
 .completedTask{
@@ -39,4 +57,9 @@ p{
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.background{
+  background-image: url("background.jpg");
+  height: 100%;
 }
