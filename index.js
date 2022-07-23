@@ -1,5 +1,24 @@
-let todos = [];
-let completeTodos = [];
+// MODAL
+let todos;
+let completeTodos;
+
+const save = JSON.parse(localStorage.getItem('save'));
+const save1 = JSON.parse(localStorage.getItem('save1'));
+
+if(Array.isArray(save)){
+  todos = save;
+}
+else{
+  todos = [];
+}
+
+if(Array.isArray(save1)){
+  completeTodos = save1;
+}
+else{
+  completeTodos = [];
+}
+
 
 function createTodo(title,dueDate,id){
   todos.push({
@@ -7,6 +26,7 @@ function createTodo(title,dueDate,id){
     dueDate: dueDate,
     id: id
   });
+  saveTodos();
 }
 
 function finishTodo(title1,dueDate1,id1){
@@ -14,7 +34,8 @@ function finishTodo(title1,dueDate1,id1){
     title1: title1,
     dueDate1: dueDate1,
     id1: id1
-  })
+  });
+  saveCompleteTodos();
 }
 
 function add_todo(){
@@ -32,6 +53,15 @@ function add_todo(){
   document.getElementById('date-picker').value = '';
 
   render();
+  saveTodos();
+}
+
+function saveTodos(){
+  localStorage.setItem('save',JSON.stringify(todos));
+}
+
+function saveCompleteTodos(){
+  localStorage.setItem('save1',JSON.stringify(completeTodos));
 }
 
 function removeTodo(idToDelete){
@@ -44,6 +74,7 @@ function removeTodo(idToDelete){
       return true;
     }
   });
+  saveTodos();
 }
 
 function deleteTodo(event){
@@ -63,6 +94,7 @@ function deleteFinishbtn(idfinishbtn){
       return true;
     }
   });
+  saveCompleteTodos();
 }
 function deleteFinish(event){
   let finishbtn = event.target;
@@ -80,13 +112,16 @@ function completed(event){
 
   todos = todos.filter((del) =>{
     return !(del.id + 'h' === event.target.id);
-  })
+  });
   render();
+  saveTodos();
+  saveCompleteTodos();
 }
 
 function complete(event) {
-  const audio=new Audio('sound_comp.wav');
+  const audio = new Audio('sound_comp.wav');
   audio.play();
+  
   if(event.target.checked){
   completed(event); 
   }
@@ -119,6 +154,8 @@ function render(){
   
   });
 }
+render();
+
 function rerender(){
 
   document.getElementById('completed-task').innerHTML = '';
@@ -145,3 +182,4 @@ function rerender(){
 
   });
 }
+rerender();
