@@ -22,3 +22,8 @@ p{
   display: flex;
   flex-direction: column;
 }
+
+.completedTask{
+  display: flex;
+  flex-direction: column;
+}
