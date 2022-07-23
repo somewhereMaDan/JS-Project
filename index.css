@@ -111,10 +111,22 @@ h1{
   height: 17px;
 }
 
+@media(max-width: 1200px){
+  .elementClass, .element1{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
 @media(max-width:900px){
   body{
       background-image: url("images/bg-mobile.png");
       background-size: cover;   
+  }
+  .elementClass, .element1{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
   }
   .mid{
       grid-template-columns: 1fr;
@@ -142,4 +154,5 @@ h1{
    #date-picker{
        margin-left: 3%;
    }
+
 }
