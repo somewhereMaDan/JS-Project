@@ -121,7 +121,7 @@ function completed(event){
 function complete(event) {
   const audio = new Audio('sound_comp.wav');
   audio.play();
-  
+
   if(event.target.checked){
   completed(event); 
   }
@@ -133,11 +133,13 @@ function render(){
 
   todos.forEach(function (todo){
     let element = document.createElement('div');
+    element.className = 'elementClass';
     element.innerText = todo.title + ' ' + todo.dueDate;
 
     let delete_Button = document.createElement('button')
-    delete_Button.innerText = 'X';
-    delete_Button.style = 'margin-left: 10px';
+    delete_Button.innerText = 'x';
+    // delete_Button.style = 'margin-left: 10px; border-radius: 8px;';
+    delete_Button.className = 'delete';
     delete_Button.onclick = deleteTodo;
     delete_Button.id = todo.id;
     element.appendChild(delete_Button);
@@ -161,24 +163,26 @@ function rerender(){
   document.getElementById('completed-task').innerHTML = '';
 
   completeTodos.forEach(function (todo){
-    let element = document.createElement('div');
-    element.innerText = todo.title + ' ' + todo.dueDate;
+    let element1 = document.createElement('div');
+    element1.className = 'element1';
+    element1.innerText = todo.title + ' ' + todo.dueDate;
 
     let delete_Button1 = document.createElement('button')
     delete_Button1.innerText = 'X';
     delete_Button1.style = 'margin-left: 10px';
     delete_Button1.onclick = deleteFinish;
     delete_Button1.id = todo.id;
-    element.appendChild(delete_Button1);
+    delete_Button1.className = 'delete1'
+    element1.appendChild(delete_Button1);
 
     let checkbox = document.createElement('INPUT');
-    checkbox.className = 'remove';
+    checkbox.className = 'remove1';
     checkbox.setAttribute("type","radio");
-    element.prepend(checkbox);
+    element1.prepend(checkbox);
     checkbox.checked = true;
 
     let todolist = document.getElementById('completed-task');
-    todolist.appendChild(element);
+    todolist.appendChild(element1);
 
   });
 }
