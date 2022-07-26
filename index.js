@@ -1,10 +1,14 @@
 // MODAL
-let todos;
+let todos=[{
+  title: 'Learn HTML',
+  dueDate: '2020-01-01',
+  id: '1'
+}];
 let completeTodos;
 
 const save = JSON.parse(localStorage.getItem('save'));
 const save1 = JSON.parse(localStorage.getItem('save1'));
-
+ 
 if(Array.isArray(save)){
   todos = save;
 }
@@ -19,6 +23,8 @@ else{
   completeTodos = [];
 }
 
+render();
+console.log(todos);
 
 function createTodo(title,dueDate,id){
   todos.push({
@@ -173,7 +179,7 @@ function render(){
   todos.forEach(function (todo){
     let element = document.createElement('div');
     element.className = 'elementClass';
-    element.innerText = todo.title + ' ' + todo.dueDate;
+    element.innerHTML = `<p>${todo.title} ${todo.dueDate}</p>`;
 
     if(todo.isEditing === true){
       const textBox = document.createElement('input');
@@ -233,7 +239,7 @@ function rerender(){
   completeTodos.forEach(function (todo){
     let element1 = document.createElement('div');
     element1.className = 'element1';
-    element1.innerText = todo.title + ' ' + todo.dueDate;
+    element1.innerHTML = `<p>${todo.title} ${todo.dueDate}</p>`;
 
     let delete_Button1 = document.createElement('button')
     delete_Button1.innerText = 'delete';
